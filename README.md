@@ -151,11 +151,11 @@ python app.py
 
 ```
 screenshots/
-```![Home Page](./Screenshots/homescreen.png)
+```![Home Page](Screenshots/homescreen.png)
 ---
 ### 💬 Chat Interface
 
-![Chat Interface](./Screenshots/interface.png)
+![Chat Interface](Screenshots/interface.png)
 
 ## 🔮 Future Improvements
 
