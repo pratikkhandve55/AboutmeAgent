@@ -1,4 +1,3 @@
-from nt import system
 from tools import tools, handle_tool_call
 from context import TWIN_SYSTEM_PROMPT
 import gradio as gr
