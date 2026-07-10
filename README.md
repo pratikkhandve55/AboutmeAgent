@@ -150,11 +150,15 @@ python app.py
 
 
 ```
-screenshots/
-![Home Page](https://raw.githubusercontent.com/pratikkhandve55/AboutmeAgent/main/Screenshots/homescreen.png)
----
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+![Home Page](./Screenshots/homescreen.png)
+
 ### 💬 Chat Interface
-![Chat Interface](https://raw.githubusercontent.com/pratikkhandve55/AboutmeAgent/main/Screenshots/interface.png)
+
+![Chat Interface](./Screenshots/interface.png)
 
 ## 🔮 Future Improvements
 
