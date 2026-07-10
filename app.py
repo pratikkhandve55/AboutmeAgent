@@ -20,15 +20,36 @@ system = [{"role": "system", "content": TWIN_SYSTEM_PROMPT}]
 
 
 def chat(message, history):
-    messages = system + history + [{"role": "user", "content": message}]
-    response = gemini.chat.completions.create(model=MODEL_NAME, messages=messages, tools=tools)
+    messages = system.copy()
+
+    for user_msg, assistant_msg in history:
+        messages.append({"role": "user", "content": user_msg})
+        if assistant_msg:
+            messages.append({"role": "assistant", "content": assistant_msg})
+
+    messages.append({"role": "user", "content": message})
+
+    response = gemini.chat.completions.create(
+        model=MODEL_NAME,
+        messages=messages,
+        tools=tools,
+    )
+
     while response.choices[0].finish_reason == "tool_calls":
-        message = response.choices[0].message
-        tool_calls = message.tool_calls
+        assistant_message = response.choices[0].message
+        tool_calls = assistant_message.tool_calls
+
         results = handle_tool_call(tool_calls)
-        messages.append(message)
+
+        messages.append(assistant_message)
         messages.extend(results)
-        response = gemini.chat.completions.create(model=MODEL_NAME, messages=messages, tools=tools)
+
+        response = gemini.chat.completions.create(
+            model=MODEL_NAME,
+            messages=messages,
+            tools=tools,
+        )
+
     return response.choices[0].message.content
 
 
