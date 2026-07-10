@@ -75,7 +75,7 @@ tools_map = [{"record_user_details": record_user_details},
              {"record_unknown_question": record_unknown_question}]
 
 
-def handle_tool_call(self, tool_calls):
+def handle_tool_call(tool_calls):
         results = []
         for tool_call in tool_calls:
             tool_name = tool_call.function.name
